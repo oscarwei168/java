@@ -5,6 +5,7 @@ import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Arrays;
+import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
@@ -13,7 +14,9 @@ import java.util.stream.LongStream;
 import java.util.stream.Stream;
 
 /**
- * @author oscarwei
+ * The Java 8 lambda expression samples
+ *
+ * @author Oscar Wei
  * @since 2015/1/20
  */
 public class LambdaSample {
@@ -46,6 +49,13 @@ public class LambdaSample {
                 t[0]).forEach(System.out::println);
 
         System.out.println("Multicore : " + Runtime.getRuntime().availableProcessors());
+
+        Callable<Boolean> task = new Callable<Boolean>() {
+            @Override
+            public Boolean call() throws Exception {
+                return true;
+            }
+        };
 
     }
 
